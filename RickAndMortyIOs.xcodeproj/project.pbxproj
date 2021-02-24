@@ -13,6 +13,12 @@
 		301F4FDE25E6921200DEC002 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 301F4FDC25E6921200DEC002 /* Main.storyboard */; };
 		301F4FE025E6921400DEC002 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 301F4FDF25E6921400DEC002 /* Assets.xcassets */; };
 		301F4FE325E6921400DEC002 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 301F4FE125E6921400DEC002 /* LaunchScreen.storyboard */; };
+		301F4FF225E695F400DEC002 /* CharacterListCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301F4FF125E695F400DEC002 /* CharacterListCollectionViewController.swift */; };
+		301F4FF625E69A2900DEC002 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301F4FF525E69A2900DEC002 /* NetworkManager.swift */; };
+		301F4FFC25E69BF900DEC002 /* PaginatedElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301F4FF925E69BF900DEC002 /* PaginatedElements.swift */; };
+		301F4FFD25E69BF900DEC002 /* PaginationInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301F4FFA25E69BF900DEC002 /* PaginationInformation.swift */; };
+		301F4FFE25E69BF900DEC002 /* SerieCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301F4FFB25E69BF900DEC002 /* SerieCharacter.swift */; };
+		301F500125E6AD9100DEC002 /* CharacterListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301F500025E6AD9100DEC002 /* CharacterListCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +30,12 @@
 		301F4FDF25E6921400DEC002 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		301F4FE225E6921400DEC002 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		301F4FE425E6921400DEC002 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		301F4FF125E695F400DEC002 /* CharacterListCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListCollectionViewController.swift; sourceTree = "<group>"; };
+		301F4FF525E69A2900DEC002 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		301F4FF925E69BF900DEC002 /* PaginatedElements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PaginatedElements.swift; path = "../../../../aide/CallAPI 2/CallAPI/Class/PaginatedElements.swift"; sourceTree = "<group>"; };
+		301F4FFA25E69BF900DEC002 /* PaginationInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PaginationInformation.swift; path = "../../../../aide/CallAPI 2/CallAPI/Class/PaginationInformation.swift"; sourceTree = "<group>"; };
+		301F4FFB25E69BF900DEC002 /* SerieCharacter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SerieCharacter.swift; path = "../../../../aide/CallAPI 2/CallAPI/Class/SerieCharacter.swift"; sourceTree = "<group>"; };
+		301F500025E6AD9100DEC002 /* CharacterListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +68,8 @@
 		301F4FD525E6921200DEC002 /* RickAndMortyIOs */ = {
 			isa = PBXGroup;
 			children = (
+				301F4FF825E69BB600DEC002 /* DataClass */,
+				301F4FF025E695CA00DEC002 /* View Controller */,
 				301F4FD625E6921200DEC002 /* AppDelegate.swift */,
 				301F4FD825E6921200DEC002 /* SceneDelegate.swift */,
 				301F4FDA25E6921200DEC002 /* ViewController.swift */,
@@ -63,8 +77,28 @@
 				301F4FDF25E6921400DEC002 /* Assets.xcassets */,
 				301F4FE125E6921400DEC002 /* LaunchScreen.storyboard */,
 				301F4FE425E6921400DEC002 /* Info.plist */,
+				301F4FF525E69A2900DEC002 /* NetworkManager.swift */,
+				301F500025E6AD9100DEC002 /* CharacterListCollectionViewCell.swift */,
 			);
 			path = RickAndMortyIOs;
+			sourceTree = "<group>";
+		};
+		301F4FF025E695CA00DEC002 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				301F4FF125E695F400DEC002 /* CharacterListCollectionViewController.swift */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		301F4FF825E69BB600DEC002 /* DataClass */ = {
+			isa = PBXGroup;
+			children = (
+				301F4FF925E69BF900DEC002 /* PaginatedElements.swift */,
+				301F4FFA25E69BF900DEC002 /* PaginationInformation.swift */,
+				301F4FFB25E69BF900DEC002 /* SerieCharacter.swift */,
+			);
+			path = DataClass;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +173,12 @@
 			files = (
 				301F4FDB25E6921200DEC002 /* ViewController.swift in Sources */,
 				301F4FD725E6921200DEC002 /* AppDelegate.swift in Sources */,
+				301F4FFD25E69BF900DEC002 /* PaginationInformation.swift in Sources */,
+				301F4FFC25E69BF900DEC002 /* PaginatedElements.swift in Sources */,
+				301F500125E6AD9100DEC002 /* CharacterListCollectionViewCell.swift in Sources */,
+				301F4FFE25E69BF900DEC002 /* SerieCharacter.swift in Sources */,
+				301F4FF625E69A2900DEC002 /* NetworkManager.swift in Sources */,
+				301F4FF225E695F400DEC002 /* CharacterListCollectionViewController.swift in Sources */,
 				301F4FD925E6921200DEC002 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
