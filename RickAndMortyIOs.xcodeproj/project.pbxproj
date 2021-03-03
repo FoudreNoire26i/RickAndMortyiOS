@@ -19,6 +19,7 @@
 		301F4FFD25E69BF900DEC002 /* PaginationInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301F4FFA25E69BF900DEC002 /* PaginationInformation.swift */; };
 		301F4FFE25E69BF900DEC002 /* SerieCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301F4FFB25E69BF900DEC002 /* SerieCharacter.swift */; };
 		301F500125E6AD9100DEC002 /* CharacterListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301F500025E6AD9100DEC002 /* CharacterListCollectionViewCell.swift */; };
+		30B7C2B725EFD35B002C0F52 /* CharacterDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B7C2B625EFD35B002C0F52 /* CharacterDetailTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		301F4FFA25E69BF900DEC002 /* PaginationInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PaginationInformation.swift; path = "../../../../aide/CallAPI 2/CallAPI/Class/PaginationInformation.swift"; sourceTree = "<group>"; };
 		301F4FFB25E69BF900DEC002 /* SerieCharacter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SerieCharacter.swift; path = "../../../../aide/CallAPI 2/CallAPI/Class/SerieCharacter.swift"; sourceTree = "<group>"; };
 		301F500025E6AD9100DEC002 /* CharacterListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListCollectionViewCell.swift; sourceTree = "<group>"; };
+		30B7C2B625EFD35B002C0F52 /* CharacterDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				301F4FF125E695F400DEC002 /* CharacterListCollectionViewController.swift */,
+				30B7C2B625EFD35B002C0F52 /* CharacterDetailTableViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 				301F4FD725E6921200DEC002 /* AppDelegate.swift in Sources */,
 				301F4FFD25E69BF900DEC002 /* PaginationInformation.swift in Sources */,
 				301F4FFC25E69BF900DEC002 /* PaginatedElements.swift in Sources */,
+				30B7C2B725EFD35B002C0F52 /* CharacterDetailTableViewController.swift in Sources */,
 				301F500125E6AD9100DEC002 /* CharacterListCollectionViewCell.swift in Sources */,
 				301F4FFE25E69BF900DEC002 /* SerieCharacter.swift in Sources */,
 				301F4FF625E69A2900DEC002 /* NetworkManager.swift in Sources */,

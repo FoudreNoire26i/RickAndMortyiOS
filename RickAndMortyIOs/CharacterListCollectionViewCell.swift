@@ -8,14 +8,13 @@
 import UIKit
 
 class CharacterListCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var characterImageView: UIImageView!
-    @IBOutlet weak var nameCharacterTextView: UILabel!
-    @IBOutlet weak var specieCharacterTextView: UILabel!
+    @IBOutlet weak var nameCharacterLabel: UILabel!
+    @IBOutlet weak var specieCharacterLabel: UILabel!
+    
     
     func setData(_ characterData : SerieCharacter) {
-        
-        nameCharacterTextView.text = characterData.name
-        specieCharacterTextView.text = characterData.specie
+        nameCharacterLabel.text = characterData.name
+        specieCharacterLabel.text = characterData.specie
     }
     
 }

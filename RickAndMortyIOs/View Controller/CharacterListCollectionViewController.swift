@@ -21,6 +21,8 @@ class CharacterListCollectionViewController: UICollectionViewController {
 
     private var diffableDataSource: UICollectionViewDiffableDataSource<Section, Item>!
     
+    private var listPerso:[SerieCharacter] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,56 +31,81 @@ class CharacterListCollectionViewController: UICollectionViewController {
 
         // Register cell classes
         // Do any additional setup after loading the view.
+        self.collectionView!.register(CharacterListCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+
+        
         diffableDataSource = UICollectionViewDiffableDataSource<Section, Item>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, item) -> UICollectionViewCell? in
             switch item {
             case .character(let serieCharacter):
+                /*
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CharacterListCollectionViewCell*/
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CharacterListCollectionViewCell
+                
                 cell.setData(serieCharacter)
                 return cell
             }
         })
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        //self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         NetworkManager.shared.getCharacters { (result : Result<PaginatedElements<SerieCharacter>, Error>) in
             switch result {
             case .failure(let error):
                 print(error)
 
             case .success(let paginatedElements):
-                print("appel api ok")
-                print(paginatedElements.information.nextURL!)
+                self.listPerso = paginatedElements.decodedElements
+                
+                let snapshot = self.createSnapshot()
+                self.diffableDataSource.apply(snapshot)
             }
         }
     }
 
-    /*
-    // MARK: - Navigation
+    private func createLayout() -> UICollectionViewLayout {
+        let layout = UICollectionViewCompositionalLayout(sectionProvider: { (section, environment) -> NSCollectionLayoutSection? in
+            let snapshot = self.diffableDataSource.snapshot()
+            let currentSection = snapshot.sectionIdentifiers[section]
+            
+            switch currentSection {
+            case .main:
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                      heightDimension: .fractionalHeight(1.0))
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+                let item = NSCollectionLayoutItem(layoutSize: itemSize)
+
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                       heightDimension: .absolute(50))
+
+                let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize,
+                                                             subitem: item,
+                                                             count: 2)
+
+                let section = NSCollectionLayoutSection(group: group)
+                section.interGroupSpacing = 10
+
+                return section
+
+                }
+        })
+
+        return layout
+    }
+
+    private func createSnapshot() -> NSDiffableDataSourceSnapshot<Section, Item> {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
+        snapshot.appendSections([.main])
+
+        let myItems = listPerso
+            .map { Item.character($0) }
+
+        snapshot.appendItems(myItems, toSection: .main)
+
+        return snapshot
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-    // MARK: UICollectionViewDataSource
-
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-
-
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-    
-        // Configure the cell
-    
-        return cell
+        if segue.identifier == "showCharacterDetail" {
+            let dest = segue.destination
+        }
     }
 
 }
