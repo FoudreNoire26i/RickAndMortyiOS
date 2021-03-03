@@ -31,21 +31,17 @@ class CharacterListCollectionViewController: UICollectionViewController {
 
         // Register cell classes
         // Do any additional setup after loading the view.
-        self.collectionView!.register(CharacterListCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
         
         diffableDataSource = UICollectionViewDiffableDataSource<Section, Item>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, item) -> UICollectionViewCell? in
             switch item {
             case .character(let serieCharacter):
-                /*
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CharacterListCollectionViewCell*/
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CharacterListCollectionViewCell
                 
                 cell.setData(serieCharacter)
                 return cell
             }
         })
-        //self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        
         NetworkManager.shared.getCharacters { (result : Result<PaginatedElements<SerieCharacter>, Error>) in
             switch result {
             case .failure(let error):
@@ -67,8 +63,8 @@ class CharacterListCollectionViewController: UICollectionViewController {
             
             switch currentSection {
             case .main:
-                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                      heightDimension: .fractionalHeight(1.0))
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.9),
+                                                      heightDimension: .fractionalHeight(0.9))
 
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
 
