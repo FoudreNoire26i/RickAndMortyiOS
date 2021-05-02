@@ -12,12 +12,13 @@ class CharacterListCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var specieCharacterLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     
+    var character : SerieCharacter?
     
     func setData(_ characterData : SerieCharacter) {
+        character = characterData
         nameCharacterLabel.text = characterData.name
-        nameCharacterLabel.backgroundColor = UIColor.white
-        nameCharacterLabel.layer.cornerRadius = 5.0
-        nameCharacterLabel.layer.masksToBounds = true
+        self.layer.cornerRadius = 5.0
+        self.layer.masksToBounds = true
         specieCharacterLabel.text = characterData.specie
         
         let imageUrl = URL(string: characterData.imageURL.absoluteString)!
@@ -31,7 +32,7 @@ class CharacterListCollectionViewCell: UICollectionViewCell {
         
         contentView.layer.borderWidth = 1
         
-        contentView.layer.borderColor = UIColor.black.cgColor
+        contentView.layer.borderColor = UIColor.lightGray.cgColor
     }
     
 }
